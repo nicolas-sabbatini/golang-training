@@ -35,7 +35,8 @@ var reader_chan = make(chan []string)
 
 // Read the csv file and send each line to the reader_chan channel
 func csv_reader() {
-	file, err := os.Open("Electric_Vehicle_Population_Data.csv")
+	const file_path = "./Electric_Vehicle_Population_Data.csv"
+	file, err := os.Open(file_path)
 	check_error(err)
 	reader := csv.NewReader(file)
 	reader.FieldsPerRecord = 0
